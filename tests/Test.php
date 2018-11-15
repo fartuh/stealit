@@ -1,5 +1,6 @@
 <?php
 namespace tests;
+
 class Test
 {
     protected function equal($value1, $value2){
