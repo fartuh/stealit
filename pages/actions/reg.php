@@ -32,7 +32,7 @@ if(isset($_POST['login']) && isset($_POST['pass'])){
         $data = $stmt->fetch(\PDO::FETCH_ASSOC);
         if(!$data){
             $stmt = Model::prepare('INSERT INTO users VALUES(NULL, ?, ?, ?, ?, ?, ?, ?)');
-            $result = $stmt->execute([$login, $pass_c, $nic, $vk, $skype, 'user', $secret_c]);
+            $result = $stmt->execute([$login, $pass_c, $nic, $vk, $skype, 'User', $secret_c]);
 
             $stmt = Model::prepare('SELECT * FROM users WHERE login = ?');
             $stmt->execute([$login]);
@@ -40,7 +40,7 @@ if(isset($_POST['login']) && isset($_POST['pass'])){
             $access = $data['access'];
 
             $url = Controller::url('profile');
-            $arr_data = ['login' => $login, 'pass' => [$pass], 'nic' => $nic, 'vk' => [$vk], 'skype' => [$skype], 'secret' => $secret, 'ip' => [$ip], 'list' => [date('d.m.Y') => [date('H:i:s')]], 'access' => [$access]];
+            $arr_data = ['login' => $login, 'pass' => [$pass], 'nic' => $nic, 'vk' => [$vk], 'skype' => [$skype], 'secret' => $secret, 'ip' => [$ip], 'list' => [date('d.m.Y') => [date('H:i:s')]],'banned' => [], 'access' => [$access]];
             Controller::putUserData($login, $arr_data);
 
             Controller::auth($data['id'], $login, $remember, true, false);

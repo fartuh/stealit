@@ -45,6 +45,7 @@ spl_autoload_register(function ($class) {
 
 // Use classes
 use core\Controller;
+use core\Model;
 use tests\Test;
 
 $settings = require('settings.php');
@@ -56,12 +57,18 @@ Controller::sets($settings);
 
 
 // Start engine
-if(Controller::isAuth() && (PAGE == 'auth' || PAGE == 'reg')){
-    Controller::findPage('profile');
+
+
+if(Controller::isAuth()){
+    if((PAGE == 'auth' || PAGE == 'reg')){
+        Controller::findPage('profile');
+    }
 }
 
-if(!Controller::isAuth() && PAGE != 'reg' && PAGE != 'forget' && PAGE != 'instagram'){
-    Controller::findPage('auth');
+elseif(!Controller::isAuth()){
+    if(PAGE != 'reg' && PAGE != 'forget' && PAGE != 'instagram'){
+        Controller::findPage('auth');
+    }
 }
 
 Controller::findPage();

@@ -28,9 +28,14 @@ if(isset($_POST['login']) && isset($_POST['pass'])){
                 if(!isset($_SESSION['ip'])) $_SESSION['ip'] = $ip;
                 if($_SESSION['ip'] == $ip){
                     $_SESSION['login'] += 1;
-                    if($_SESSION['login'] >= 5){ 
+                    if($_SESSION['login'] >= 7){ 
                         file_put_contents(ROOT . "banned/$ip.txt", $ip."|".time());
-                    }
+                        $json = Controller::getUserData($data['login']);
+                        $date = date('d.m.Y');
+                        
+                        $json->banned->$date[] = date('H:i:s');
+                        Controller::putUserData($data['login'], $json);
+                   }
                     
                 }
             }

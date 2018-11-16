@@ -6,7 +6,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=stealit;charset=utf8', 'root', 'root
 // Таблица users
 
 
-$stmt = $pdo->prepare("CREATE TABLE users(id INT NOT NULL AUTO_INCREMENT, login VARCHAR(40) UNIQUE, pass varchar(40), nic varchar(40) UNIQUE, vk varchar(30), skype varchar(20), access VARCHAR(10) NOT NULL DEFAULT 'user', secret VARCHAR(40), PRIMARY KEY(id))");
+$stmt = $pdo->prepare("CREATE TABLE users(id INT NOT NULL AUTO_INCREMENT, login VARCHAR(40) UNIQUE, pass varchar(40), nic varchar(40) UNIQUE, vk varchar(30), skype varchar(20), access VARCHAR(10) NOT NULL DEFAULT 'User', secret VARCHAR(40), PRIMARY KEY(id))");
 
 $res = $stmt->execute();
 
