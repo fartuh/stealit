@@ -49,6 +49,10 @@ $data = $stmt->fetchall(\PDO::FETCH_ASSOC);
                 <td>
                     <a href="<?= Controller::url('list') . "?login=" . $d['login'] ?>">Информация о пользователе</a>
                 </td>
+                <td>
+                    <a href="<?= Controller::url('access') . "?login=" . $d['login'] ?>">Изменить уровень доступа</a>
+                </td>
+
            </tr>
         <?php endforeach; ?>
     </table>

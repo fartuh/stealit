@@ -28,6 +28,8 @@ $data = Controller::getUserData($login);
     <title></title>
 </head>
 <body>
+    <a href="<?= Controller::url('profile') ?>">Вернуться в аккаунт</a>
+    <br>
     <h1>Информация о пользователе <?= $data->nic ?></h1>
     <h2>Логин <?= $data->login ?></h2>
     <h2>История паролей</h2>
