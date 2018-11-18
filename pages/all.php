@@ -27,7 +27,6 @@ $data = $stmt->fetchall(\PDO::FETCH_ASSOC);
     <title></title>
 </head>
 <body>
-<div class="container">
 <a href="<?= Controller::url('profile') ?>">Вернуться в профиль</a>
     <table>
         <tr>
@@ -45,7 +44,6 @@ $data = $stmt->fetchall(\PDO::FETCH_ASSOC);
             </tr>
         <?php endforeach; ?>
     </table>
-</div>
 
     </body>
 </html>

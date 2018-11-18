@@ -54,7 +54,6 @@ if(isset($_POST['new_access']) && strip_tags(trim($_POST['new_access'])) != ""){
     <title></title>
 </head>
 <body>
-<div class="container">
     <a href="<?= Controller::url('profile') ?>">Вернуться в аккаунт</a>
     <form action="" method="POST">
         <h2>Текущий уровень доступа: <?= $current_access ?></h2>
@@ -66,6 +65,5 @@ if(isset($_POST['new_access']) && strip_tags(trim($_POST['new_access'])) != ""){
         </datalist>
         <input type="submit">
     </form>
-</div>
 </body>
 </html>

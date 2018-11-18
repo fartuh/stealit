@@ -12,7 +12,6 @@ Controller::action('auth');
         <title></title>
 </head>
 <body>
-    <div class="container">
     <h1>Авторизация</h1>
     <a href="<?= Controller::url('reg') ?>">Регистрация</a>
     <form action="" method="post">
@@ -22,6 +21,5 @@ Controller::action('auth');
         <a href="<?= Controller::url('forget') ?>">Забыл пароль?</a>
         <input type="submit" value="Войти">
     </form>
-    </div>
 </body>
 </html>
