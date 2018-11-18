@@ -83,4 +83,8 @@ class Controller
     public static function putUserData($login, $json){
         file_put_contents(ROOT . "user_data/$login.json", json_encode($json));
     }
+
+    public static function assets($path){
+        return "assets/$path";
+    }
 }

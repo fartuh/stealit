@@ -58,6 +58,8 @@ Controller::sets($settings);
 
 // Start engine
 
+echo '<link rel="stylesheet" href="', Controller::assets("css/style.css") . '">';
+
 
 if(Controller::isAuth()){
     if((PAGE == 'auth' || PAGE == 'reg')){

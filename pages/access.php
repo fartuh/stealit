@@ -33,7 +33,7 @@ if(isset($_POST['new_access']) && strip_tags(trim($_POST['new_access'])) != ""){
     if($access == "Admin" || $current_access == "Admin") echo "Недостаточно прав";
     else{
         $stmt = Model::prepare("UPDATE users SET access = ? WHERE login = ?");
-        $result = $stmt->execute([$new_access]);
+        $result = $stmt->execute([$new_access, $login]);
 
         if(!$result) exit('Ошибка');
 

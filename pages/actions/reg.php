@@ -40,7 +40,7 @@ if(isset($_POST['login']) && isset($_POST['pass'])){
             $access = $data['access'];
 
             $url = Controller::url('profile');
-            $arr_data = ['login' => $login, 'pass' => [$pass], 'nic' => $nic, 'vk' => [$vk], 'skype' => [$skype], 'secret' => $secret, 'ip' => [$ip], 'list' => [date('d.m.Y') => [date('H:i:s')]],'banned' => [], 'access' => [$access]];
+            $arr_data = ['login' => $login, 'pass' => [$pass], 'nic' => $nic, 'vk' => [$vk], 'skype' => [$skype], 'secret' => $secret, 'ip' => [$ip], 'list' => [date('d.m.Y') => []],'banned' => [], 'access' => [$access]];
             Controller::putUserData($login, $arr_data);
 
             Controller::auth($data['id'], $login, $remember, true, false);

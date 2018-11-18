@@ -12,8 +12,8 @@ $sum = $num1 + $num2;
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-        <meta charset="UTF-8">
-        <title></title>
+    <meta charset="UTF-8">
+    <title></title>
 </head>
 <script>
     function valForm(){
