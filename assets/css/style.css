@@ -4,5 +4,30 @@
 }
 
 body{
+    background-color: silver;
+}
+
+.container{
+    width: 450px;
+    height: 500px;
+    margin: 250px auto 0 auto;
     background-color: whitesmoke;
+}
+
+.container-back{
+    width: 450px;
+    height: 500px;
+    margin: 0 auto 0 auto;
+}
+
+.center{
+    text-align: center;
+}
+
+a{
+    color:black;
+}
+
+a:visited{
+    color: black;
 }

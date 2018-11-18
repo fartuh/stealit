@@ -30,6 +30,7 @@ $data = $stmt->fetchall(\PDO::FETCH_ASSOC);
     <title></title>
 </head>
 <body>
+<div class="center">
 <a href="<?= Controller::url('profile') ?>">Вернуться в профиль</a>
     <table>
         <tr>
@@ -57,4 +58,6 @@ $data = $stmt->fetchall(\PDO::FETCH_ASSOC);
         <?php endforeach; ?>
     </table>
 
-    </body>
+</div>
+</body>
+</html>
