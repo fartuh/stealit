@@ -25,6 +25,7 @@ if(isset($_GET['id'])){
             $stmt = Model::prepare("DELETE FROM accounts WHERE steal_id = ?");
             $stmt->execute([$id]);
             header("Location: $back");
+            exit();
         }
     }
 }

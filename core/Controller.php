@@ -73,6 +73,7 @@ class Controller
         if($header == true){
             $url = self::url('profile');
             header("Location: $url");
+            exit();
         }
     }
 

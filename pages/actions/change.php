@@ -67,4 +67,5 @@ if((isset($_POST['newpass']) && strip_tags(trim($_POST['newpass'])) != "") || (i
     }       
 
     header("Location: $url");
+    exit();
 }

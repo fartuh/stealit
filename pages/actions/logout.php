@@ -8,3 +8,4 @@ unset($_SESSION['id']);
 unset($_SESSION['access']);
 $url = Controller::url('auth');
 header("Location: $url");
+exit();
